@@ -1,38 +1,94 @@
-.App {
+* {
+  margin: 0;
+}
+
+.background {
+  width: 100vw;
+  height: 100vh;
+  /* background-color: green; */
+  background-image: url('https://ih1.redbubble.net/image.922397317.7863/flat,750x1000,075,f.jpg');
+  z-index: -2;
+  
+}
+
+.header {
   text-align: center;
+  font-family: 'Lucida Sans';
+  font-size: 25px;
+  position: relative;
+  padding-top: 40px;
+  margin-bottom: 10px;
+  color: rgb(228, 189, 63);
+  text-shadow: -7px -3px 0px rgba(114,75,17,0.82);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.pockets-inventory-container {
+  width: 70vw;
+  height: 300px;
+  /* border: solid black 1px; */
+  position: relative;
+  left: 15vw;
+  border-radius: 100px;
+  background-color: ivory;
   display: flex;
-  flex-direction: column;
+  box-sizing: border-box;
+  /* justify-content: space-around; */
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.inventory-spot {
+  height: 35px;
+  width: 35px;
+  background-color: rgb(226, 226, 202);
+  border-radius: 100px;
+  margin: 40px;
+  margin-top: 45px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.item-image {
+  height: 150px;
+  width: auto;
+}
+
+.mapped-pockets-container {
+  width: 80vw;
+  height: 300px;
+  border: solid black 1px;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-direction: row;
+  top: 500px;
+  left: 10vw;
+}
+
+.islander {
+  height: 500px;
+  width: auto;
+  position: relative;
+  left: 750px;
+  top: -82px;
+}
+
+
+.mapped-items-container {
+  width: 90vw;
+  height: 150px;
+  /* border: solid black 1px; */
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-direction: row;
+  top: -200px;
+  left: 5vw;
+}
+
+.island-items {
+  position: relative;
+  display: flex;
 }
