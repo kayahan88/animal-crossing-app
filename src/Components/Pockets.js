@@ -1,51 +1,25 @@
-import React, {Component} from 'react';
-import axios from 'axios';
-import PocketItems from './PocketItems';
+import React from 'react';
 
+const Pockets = (props) => {
 
-class Pockets extends Component {
-    constructor(){
-        super();
-        this.state = {
-            pocketItems: [],
-            quantity: null
-        }
-        this.pickUpItems = this.pickUpItems.bind(this);
-        this.dropItem = this.dropItem.bind(this);
-    }
+const {pocketItem, img, id, updatePockets} = props;
+    return (
 
-    //axios.get to show pocket items, which is nothing at first
-    getPocketItems = () => {
-        axios.get('/api/pocket-items')
-            .then(res => {
-                this.setState({ pocketItems: res.data })
-            })
-    }
+        <div>
+            <section className='island-item'>
 
-    
-    
-    
-    //axios.delete to drop an individual item
-    dropItem = (id) => {
-        axios.delete(`/api/pocket-items/${id}`)
-            .then(res => {
-                this.setState({ pocketItems: res.data })
-            })
-    }
-    
-
-    render(){
-        const mappedPocketItems = this.state.pocketItems.map((item, i) => (
+                <img 
+                className='item-image' 
+                onClick={()=> updatePockets(id)} 
+                src={img}
+                alt=''/>
             
-            <PocketItems 
-                key={i}
-                pocketItem={item}
-                />
-        ))
 
-        return (
-            <div className='mapped-pockets-container'>{mappedPocketItems}</div>
-        )
-    }
+            </section>
+
+            
+
+        </div>
+    )
 }
 export default Pockets;

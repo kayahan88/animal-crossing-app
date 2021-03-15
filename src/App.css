@@ -4,7 +4,7 @@
 
 .background {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   /* background-color: green; */
   background-image: url('https://ih1.redbubble.net/image.922397317.7863/flat,750x1000,075,f.jpg');
   z-index: -2;
@@ -54,16 +54,34 @@
 }
 
 .mapped-pockets-container {
-  width: 80vw;
+  width: 70vw;
   height: 300px;
-  border: solid black 1px;
+  /* border: solid black 5px; */
   position: relative;
-  display: flex;
+  display: inline-flex;
   justify-content: space-around;
   align-items: flex-start;
   flex-direction: row;
-  top: 500px;
-  left: 10vw;
+  /* top: -300px; */
+  bottom: 900px;
+  left: 15vw;
+  z-index: 2;
+}
+
+.clear-pockets-button {
+  height: 100px;
+  width: 150px;
+  position: absolute;
+  left: 1500px;
+  bottom: 500px;
+  border-radius: 80px;
+  border: 4px solid rgb(228, 189, 63);
+  background-color:rgb(46, 192, 192);
+  color: ivory;
+  font-family: 'Lucida Sans';
+  font-size: 20px;
+  font-weight: bold;
+  z-index: 3;
 }
 
 .islander {
@@ -71,7 +89,7 @@
   width: auto;
   position: relative;
   left: 750px;
-  top: -82px;
+  top: -83px;
 }
 
 
@@ -84,11 +102,34 @@
   justify-content: space-around;
   align-items: flex-start;
   flex-direction: row;
-  top: -200px;
+  bottom: 180px;
   left: 5vw;
 }
 
 .island-items {
   position: relative;
   display: flex;
+}
+
+
+
+.button {
+  margin-top: 6px;
+  height: 45px;
+  width: 150px;
+  border-radius: 100px;
+  color: ivory;
+  background-color: rgb(22, 165, 165);
+  /* border-color:rgb(226, 226, 202);
+   /* */
+   border: none;
+   
+  box-shadow: 0px 0px 0px 2px rgba(255,245,199,0.5);
+  font-size: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.button:hover {
+  cursor: grab;
+  background-image: url('https://previews.dropbox.com/p/thumb/ABHCMtXEe8_7FOhVn_PNrxabs6U2fE7hn-KJsl-2HSNsQ5RNlaybAY0KGb7BNyjSiMPY2J3MTgh3lyg1aKCMXqFOy06kQ0NkrTvrdQ728GiRX3OYY7htiitFSybhwU30tYTVf3_3WYUh8BvYWVImA43haJ5ZRMpuKySi15o65jn7IrLCaov9NLQAU4UYgodil9MLtkA_piROssEl2_1GFnaIc_UARfC6TENqMZJi81A0Uxuf18_EfSiUI47pTIndHaH262fcCy3JXryUEifEGXIEq9KC2aoiWqiovygUijxdYCvK6aTdpUu8oj5zHEMGN71mn3zuhTp2_MEm2hOdazDA5P4rBfM6gGKrU5lBW81Ha3_9ypdPYvu8tKk91b1gWiI/p.jpeg?fv_content=true&size_mode=5')
 }

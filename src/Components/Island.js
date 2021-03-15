@@ -1,70 +1,105 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import islandItems from '../items';
-import IslandItems from './IslandItems';
+import IslandDisplay from './IslandDisplay';
 import Pockets from './Pockets'
 
 class Island extends Component {
     constructor(){
         super();
         this.state = {
-            islandItems,
-            
-            userInput: ''
+            islandItems: [],
+            pockets: []
         }
-        this.handleInput = this.handleInput.bind(this);
+        this.addToPockets = this.addToPockets.bind(this)
+        this.updatePockets = this.updatePockets.bind(this)
+        this.clearPockets = this.clearPockets.bind(this)
     }
 
-    componentDidMount(){
-        this.getIslandItems();
-    };
-
-    //axios.get to show island items
-    getIslandItems = () => {
+    componentDidMount() {
+        console.log('didMount')
         axios.get('/api/island-items')
-            .then(res => {
-                this.setState({ islandItems: res.data })
+        .then(res => {
+            const {islandItems, pockets} = res.data
+            this.setState({ 
+                islandItems: islandItems
+                   
             })
+        })
     };
 
-    //edit quantity function
-    editQuantity = (id, newQuantity) => {
-        let body = {quantity: newQuantity}
-        axios.put(`/api/pocket-items/${id}`, body)
-            .then(res => {
-                this.setState({ islandItems: res.data })
+    addToPockets(item){
+        console.log('clicked')
+        console.log(item)
+        axios.post('/api/pocket-items/', item)
+        .then(res => {
+            console.log(res.data)
+            const {pockets} = res.data
+            this.setState({
+                pockets: pockets
             })
-    };
+        })
+    }
 
-    handleInput(e) {
-        this.setState({ userInput: e.target.value })
-        console.log(this.state.userInput)
-    };
-
-    //axios.post to put the island items in the pockets -- pick up item function?
-    pickUpItem = () => {
-        axios.post('/api/pocket-items:id')
+    updatePockets = (id) => {
+        id = +id
+        let pockets = this.state.pockets;
+        axios.put(`/api/pocket-items/${id}`, pockets)
             .then(res => {
-                this.setState({ pocketItems: res.data })
-                this.setState({ userInput: '' })
+                this.setState ({ pockets: res.data })
             })
-            
-    };
-
+    }
+    
+    clearPockets = () => {
+        let pockets = this.state.pockets
+        // console.log('clear')
+        axios.delete('/api/pocket-items/', pockets)
+        
+            .then(res => {
+                const {pockets} = res.data
+                this.setState({ pockets: pockets })
+            })
+    }
+    
     render(){
         const mappedIslandItems = this.state.islandItems.map((item, i) => (
-            //send IslandItems.js the pickUpItem function as a prop, so that you can you can create a 'pick up' button and connect it to this function 
-            //send IslandItems.js the handleInput function as a prop sot hat you can create an input box and connect it on an onChange event and connect it to this function
-            <IslandItems
+            
+            <IslandDisplay
                 key={i}
                 islandItem={item}
-                editQFn={this.editQuantity}
-                pickUpFn={this.pickUpItem}
-                handleInputFn={this.handleInput}/>
+                img={item.img}
+                addToPockets={this.addToPockets}
+                />))
+
+        const mappedPocketItems = this.state.pockets.map((item, i) => (
+
+            <Pockets 
+                key={i}
+                id={item.id}
+                pocketItem={item}
+                img={item.img}
+                pockets={this.state.pockets}
+                updatePockets={this.updatePockets}
+                // clearPockets={this.clearPockets}
+                />
         ))
+                
         return (
-            <div className='mapped-items-container'>{mappedIslandItems}</div>
+
+            <div>
+                <section className='mapped-items-container'>{mappedIslandItems}</section>
+
+                <button 
+                onClick={this.clearPockets}
+                className='clear-pockets-button'>Clear Pockets!</button>
+
+                <section className='mapped-pockets-container'>{mappedPocketItems}</section>
+
+            </div>
+
+            
         )
     }
 }
 export default Island;
+
+

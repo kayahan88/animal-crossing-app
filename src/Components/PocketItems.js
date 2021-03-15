@@ -1,15 +1,14 @@
-import React from 'react';
+// import React from 'react';
 
-const PocketItems = (props) => {
-
-
-    return (
-        <div className='pocket-item'>
-            <p>{props.pocketItem.name}</p>
-            <p>{props.pocketItem.quantity}</p>
-        </div>
-    )
+// const PocketItems = (props) => {
 
 
-}
-export default PocketItems;
+//     return (
+//         <div className='pocket-item'>
+//             <p>{props.img}</p>
+//         </div>
+//     )
+
+
+// }
+// export default PocketItems;
