@@ -5,6 +5,9 @@ const Header = () => {
 
         <div>
 
+            <div className='header-color'></div>
+
+
             <div className='header'>
                 <h1>Animal Crossing Pockets App!</h1>
             </div>
@@ -30,8 +33,7 @@ const Header = () => {
                 <div className="inventory-spot"></div>
                 <div className="inventory-spot"></div>
                 <div className="inventory-spot"></div>
-                <div className="inventory-spot"></div>
-                <div className="inventory-spot"></div>
+                
             </div>
 
 

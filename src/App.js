@@ -8,6 +8,7 @@ import "./App.css";
 export default function App() {
   return (
     <div className="background">
+      
       <Header />
       <img
           className="islander"

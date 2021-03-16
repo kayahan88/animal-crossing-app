@@ -9,7 +9,7 @@ const {pocketItem, img, id, updatePockets} = props;
             <section className='island-item'>
 
                 <img 
-                className='item-image' 
+                className='pocket-item-image' 
                 onClick={()=> updatePockets(id)} 
                 src={img}
                 alt=''/>

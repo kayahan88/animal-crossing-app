@@ -4,16 +4,16 @@ const IslandDisplay = (props) => {
 
 const {islandItem, img, addToPockets} = props;
     return (
-        <div className='island-item'>
+        <button className='island-item-button'
+        onClick={()=> addToPockets(islandItem)}>
 
             <img 
-            className='item-image' 
-            onClick={()=> addToPockets(islandItem)} 
+            className='island-item-image' 
             src={img}
             alt=''/>
            
 
-        </div>
+        </button>
     )
 }
 export default IslandDisplay;
